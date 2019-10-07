@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  balance: 1
+  budget_balance: 1
+
+two:
+  balance: 1
+  budget_balance: 1
