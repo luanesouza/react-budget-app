@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_10_07_192744) do
   end
 
   create_table "expenses", force: :cascade do |t|
-    t.string "type"
+    t.string "category"
     t.integer "total"
     t.integer "user_id"
     t.integer "account_id"
