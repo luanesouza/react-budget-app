@@ -2,6 +2,7 @@ import React from 'react';
 // import './App.css';
 import { Component } from 'react';
 import UserForm from './components/UserForm';
+import NavBar from './components/NavBar';
 import getUsers from './api-helper/user';
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar />
         <h1> Budget App </h1>
         <UserForm formData={this.state.formData}/>
       </div>
