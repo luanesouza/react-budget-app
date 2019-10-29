@@ -1,7 +1,9 @@
 import React from 'react';
 // import './App.css';
 import { Component } from 'react';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import UserForm from './components/UserForm';
+import Profile from './components/Profile';
 import getUsers from './api-helper/user';
 
 class App extends Component {
@@ -13,7 +15,7 @@ class App extends Component {
     }
   }
 
-  logIn = () =>{
+  logIn = () => {
     console.log('hey');
   }
 
@@ -21,16 +23,14 @@ class App extends Component {
     e.preventDefault()
     const { name, value } = e.target;
 
-    console.log(this.state.formData)
-
-    e.target.value = ''
-
     this.setState({
       formData: {
         ...this.state.formData,
         [name]: ''
       }
     })
+    this.logIn()
+
   }
 
   handleChange = (e) => {
@@ -46,8 +46,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1> Budget App </h1>
-        <UserForm onSubmit={this.handleSubmit}  onChange={this.handleChange} formData={this.state.formData}/>
+
+        <Route exact path='/' render={ () => (
+          <UserForm onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
+          formData={this.state.formData}/> )}/>
+
+        <Route exact path='/profile' render={ () => (
+          <Profile /> )}/>
       </div>
     );
   }
